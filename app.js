@@ -168,7 +168,7 @@ function crearTarjetaMueble(mueble) {
             <div class="mueble-content">
                 <h2 class="mueble-nombre">${mueble.nombre}</h2>
                 <p class="mueble-descripcion">${mueble.descripcion}</p>
-                <div class="mueble-precio">$${precioFormateado}</div>
+                <div class="mueble-precio">S/.${precioFormateado}</div>
             </div>
         </article>
     `;
