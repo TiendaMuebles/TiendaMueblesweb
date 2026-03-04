@@ -203,7 +203,7 @@ function abrirModal(mueble) {
     document.getElementById('modalDescripcion').textContent = mueble.descripcion;
     document.getElementById('modalPrecio').innerHTML = `
         <span class="modal-categoria">${iconoCategoria[mueble.categoria] || '📦'} ${mueble.categoria}</span>
-        $${formatearPrecio(mueble.precio)}
+        S/.${formatearPrecio(mueble.precio)}
     `;
     
     // Configurar WhatsApp
