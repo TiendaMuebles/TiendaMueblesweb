@@ -1,0 +1,24 @@
+# Archivos de documentación local (no necesarios en producción)
+*.txt
+!TEMPLATE_GOOGLE_SHEET.txt
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (si usas en el futuro)
+node_modules/
+
+# Logs
+*.log
+
+# Ejecutables
+*.exe
+*.msi

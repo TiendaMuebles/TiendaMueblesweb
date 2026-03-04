@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Muebles Premium | Diseño & Confort</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo de la Tienda -->
+                <div class="logo-container">
+                    <img src="imagenes/logo.png" alt="Logo Mueblería" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="logo-placeholder" style="display: none;">🛋️</div>
+                </div>
+                
+                <!-- Texto del Header -->
+                <div class="header-text">
+                    <h1 class="logo">Mueblería Elegante</h1>
+                    <p class="tagline">Diseño minimalista para espacios excepcionales</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#catalogo" class="nav-link active">📦 Catálogo</a></li>
+                <li><a href="#contacto" class="nav-link">📞 Contáctame</a></li>
+                <li><a href="#" id="btnAdmin" class="nav-link nav-admin">🔐 Panel de Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Buscar muebles por nombre o descripción..." 
+                    class="search-input"
+                >
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <!-- Filtro de Categorías -->
+            <div class="filter-categories">
+                <button class="category-btn active" data-category="todos">
+                    📦 Todos
+                </button>
+                <button class="category-btn" data-category="Sala">
+                    🛋️ Sala
+                </button>
+                <button class="category-btn" data-category="Comedor">
+                    🍽️ Comedor
+                </button>
+                <button class="category-btn" data-category="Dormitorio">
+                    🛏️ Dormitorio
+                </button>
+                <button class="category-btn" data-category="Oficina">
+                    💼 Oficina
+                </button>
+                <button class="category-btn" data-category="Almacenamiento">
+                    📚 Almacenamiento
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content" id="catalogo">
+        <div class="container">
+            <!-- Animación de Carga -->
+            <div id="loadingScreen" class="loading-screen">
+                <div class="loading-content">
+                    <div class="spinner"></div>
+                    <p class="loading-text">Cargando catálogo...</p>
+                    <p class="loading-subtext">📊 Conectando con Google Sheets</p>
+                </div>
+            </div>
+            
+            <div id="catalogoMuebles" class="catalogo-grid">
+                <!-- Los muebles se cargarán dinámicamente aquí -->
+            </div>
+            <div id="noResults" class="no-results" style="display: none;">
+                <p>No se encontraron muebles que coincidan con tu búsqueda.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Galería -->
+    <div id="modalGaleria" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" id="closeModal" aria-label="Cerrar">
+                <span>×</span>
+            </button>
+            
+            <div class="modal-content">
+                <!-- Información del Producto -->
+                <div class="modal-info">
+                    <h2 id="modalNombre" class="modal-nombre"></h2>
+                    <p id="modalDescripcion" class="modal-descripcion"></p>
+                    <div id="modalPrecio" class="modal-precio"></div>
+                </div>
+
+                <!-- Galería/Slider -->
+                <div class="modal-galeria">
+                    <button class="galeria-btn galeria-btn-prev" id="btnPrev" aria-label="Anterior">
+                        ‹
+                    </button>
+                    
+                    <div class="galeria-main" id="galeriaMain">
+                        <!-- Imágenes y videos se cargarán aquí dinámicamente -->
+                    </div>
+                    
+                    <button class="galeria-btn galeria-btn-next" id="btnNext" aria-label="Siguiente">
+                        ›
+                    </button>
+                    
+                    <!-- Indicadores -->
+                    <div class="galeria-indicadores" id="galeriaIndicadores"></div>
+                </div>
+
+                <!-- Botón de WhatsApp -->
+                <div class="modal-actions">
+                    <a 
+                        href="#" 
+                        id="modalWhatsapp" 
+                        target="_blank" 
+                        class="btn-whatsapp btn-whatsapp-large"
+                        rel="noopener noreferrer"
+                    >
+                        📱 Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div id="modalLogin" class="modal-overlay modal-login">
+        <div class="modal-container modal-login-container">
+            <button class="modal-close" id="closeLogin" aria-label="Cerrar">
+                <span>×</span>
+            </button>
+            
+            <div class="login-content">
+                <h2 class="login-title">🔐 Panel de Administración</h2>
+                <p class="login-subtitle">Ingresa tus credenciales</p>
+                
+                <form id="formLogin" class="login-form">
+                    <div class="form-group">
+                        <label for="loginUsuario">👤 Usuario</label>
+                        <input 
+                            type="text" 
+                            id="loginUsuario" 
+                            placeholder="Ingresa tu usuario"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">🔑 Contraseña</label>
+                        <input 
+                            type="password" 
+                            id="loginPassword" 
+                            placeholder="Ingresa tu contraseña"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+                    
+                    <div id="loginError" class="login-error" style="display: none;">
+                        ❌ Credenciales incorrectas
+                    </div>
+                    
+                    <button type="submit" class="btn-login">
+                        ✅ Ingresar al Panel
+                    </button>
+                </form>
+                
+                <div class="login-hint">
+                    <small>💡 Credenciales de prueba: admin / admin123</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contacto-section">
+        <div class="container">
+            <h2 class="contacto-title">📞 Contáctame</h2>
+            <p class="contacto-subtitle">¿Tienes alguna pregunta? Estamos aquí para ayudarte</p>
+            
+            <div class="contacto-grid">
+                <div class="contacto-card">
+                    <div class="contacto-icon">
+                        📱
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Chatea con nosotros</p>
+                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="btn-contacto">
+                        Abrir WhatsApp
+                    </a>
+                </div>
+                
+                <div class="contacto-card">
+                    <div class="contacto-icon">
+                        📧
+                    </div>
+                    <h3>Email</h3>
+                    <p>Envíanos un correo</p>
+                    <a href="mailto:contacto@muebleria.com" class="btn-contacto">
+                        Enviar Email
+                    </a>
+                </div>
+                
+                <div class="contacto-card">
+                    <div class="contacto-icon">
+                        📍
+                    </div>
+                    <h3>Ubicación</h3>
+                    <p>Visita nuestro showroom</p>
+                    <a href="#" class="btn-contacto">
+                        Ver Mapa
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Mueblería Elegante. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

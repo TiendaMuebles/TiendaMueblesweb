@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "nombre": "Sofá Moderno Escandinavo",
+    "categoria": "Sala",
+    "precio": 899.99,
+    "descripcion": "Sofá de 3 plazas con diseño minimalista, tapizado en tela premium color gris claro",
+    "imagenes": [
+      "imagenes/sofa-escandinavo.jpg",
+      "imagenes/sofa-escandinavo-2.jpg",
+      "imagenes/sofa-escandinavo-3.jpg"
+    ],
+    "videos": [
+      "videos/sofa-escandinavo.mp4"
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Mesa de Comedor Roble",
+    "categoria": "Comedor",
+    "precio": 679.50,
+    "descripcion": "Mesa extensible de madera de roble natural, capacidad para 6-8 personas",
+    "imagenes": [
+      "imagenes/mesa-roble.jpg",
+      "imagenes/mesa-roble-2.jpg"
+    ],
+    "videos": []
+  },
+  {
+    "id": 3,
+    "nombre": "Silla Barcelona Edition",
+    "categoria": "Comedor",
+    "precio": 299.99,
+    "descripcion": "Silla ergonómica con respaldo alto, estructura de acero cromado y asiento acolchado",
+    "imagenes": [
+      "imagenes/silla-barcelona.jpg",
+      "imagenes/silla-barcelona-2.jpg",
+      "imagenes/silla-barcelona-3.jpg"
+    ],
+    "videos": [
+      "videos/silla-barcelona.mp4"
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "Estantería Industrial",
+    "categoria": "Almacenamiento",
+    "precio": 449.00,
+    "descripcion": "Estantería de 5 niveles con estructura metálica negra y estantes de madera reciclada",
+    "imagenes": [
+      "imagenes/estanteria-industrial.jpg",
+      "imagenes/estanteria-industrial-2.jpg"
+    ],
+    "videos": []
+  },
+  {
+    "id": 5,
+    "nombre": "Cama King Size Premium",
+    "categoria": "Dormitorio",
+    "precio": 1299.99,
+    "descripcion": "Cama tapizada con cabecero acolchado, incluye somier de láminas reforzadas",
+    "imagenes": [
+      "imagenes/cama-premium.jpg",
+      "imagenes/cama-premium-2.jpg",
+      "imagenes/cama-premium-3.jpg"
+    ],
+    "videos": [
+      "videos/cama-premium.mp4"
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "Escritorio Ejecutivo",
+    "categoria": "Oficina",
+    "precio": 549.00,
+    "descripcion": "Escritorio con cajones laterales, acabado en nogal y detalles cromados",
+    "imagenes": [
+      "imagenes/escritorio-ejecutivo.jpg",
+      "imagenes/escritorio-ejecutivo-2.jpg"
+    ],
+    "videos": []
+  },
+  {
+    "id": 7,
+    "nombre": "Mueble TV Minimalista",
+    "categoria": "Sala",
+    "precio": 389.99,
+    "descripcion": "Mueble bajo para televisión con compartimentos ocultos y cajones deslizantes",
+    "imagenes": [
+      "imagenes/mueble-tv.jpg",
+      "imagenes/mueble-tv-2.jpg"
+    ],
+    "videos": [
+      "videos/mueble-tv.mp4"
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "Sillón Relax Cuero",
+    "categoria": "Sala",
+    "precio": 799.00,
+    "descripcion": "Sillón reclinable de cuero genuino con reposapiés ajustable y función giratoria",
+    "imagenes": [
+      "imagenes/sillon-relax.jpg",
+      "imagenes/sillon-relax-2.jpg",
+      "imagenes/sillon-relax-3.jpg"
+    ],
+    "videos": []
+  }
+]

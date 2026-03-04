@@ -1,0 +1,149 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║           TEMPLATE PARA GOOGLE SHEETS - CATÁLOGO DE MUEBLES      ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+📋 INSTRUCCIONES RÁPIDAS:
+=========================
+1. Abre Google Sheets (sheets.google.com)
+2. Crea una nueva hoja
+3. Copia la tabla de abajo y pégala en la fila 1
+4. Nombra la pestaña como "Muebles" (exactamente así)
+5. ¡Comienza a agregar tus muebles!
+
+
+📊 COPIA ESTA TABLA (desde "ID" hasta "Videos"):
+================================================================
+
+ID	Nombre	Categoria	Precio	Descripcion	Imagenes	Videos
+1	Sofá Escandinavo de 3 Plazas	Sala	899.99	Sofá moderno con diseño escandinavo, tapizado en tela gris claro resistente. Estructura de madera maciza con patas cónicas. Perfecto para salas contemporáneas y minimalistas.	sofa-escandinavo.jpg, sofa-escandinavo-2.jpg, sofa-escandinavo-3.jpg	sofa-escandinavo.mp4
+2	Mesa de Comedor Extensible	Comedor	599.99	Mesa de comedor de madera de roble con capacidad extensible hasta 8 personas. Acabado natural barnizado. Ideal para reuniones familiares y celebraciones.	mesa-comedor.jpg, mesa-comedor-2.jpg	
+3	Cama King Size Almacenamiento	Dormitorio	1299.99	Cama king size con cajones de almacenamiento integrados. Cabecera tapizada acolchada. Color gris oscuro. Estructura de MDF de alta densidad.	cama-king.jpg, cama-king-2.jpg, cama-king-3.jpg	
+4	Escritorio Ejecutivo Moderno	Oficina	449.99	Escritorio de 1.50m con tres cajones y organizador lateral. Superficie melamínica resistente a rayones. Cable grommets para gestión de cables.	escritorio-moderno.jpg	
+5	Estantería Industrial 5 Niveles	Almacenamiento	329.99	Estantería estilo industrial con estructura metálica negra y repisas de madera. 5 niveles, capacidad de 20kg por nivel. 180cm de altura.	estanteria-industrial.jpg, estanteria-industrial-2.jpg	
+6	Sillón Reclinable Deluxe	Sala	699.99	Sillón individual reclinable con reposapiés integrado. Tapizado en cuero sintético de alta calidad. Mecanismo de reclinación manual suave.	sillon-reclinable.jpg, sillon-reclinable-2.jpg	sillon-demo.mp4
+7	Juego de Comedor 6 Sillas	Comedor	899.99	Set completo: mesa + 6 sillas. Diseño clásico en madera de pino. Sillas con respaldo ergonómico y asiento tapizado. Barnizado protector.	juego-comedor.jpg, juego-comedor-2.jpg	
+8	Cómoda 4 Cajones Vintage	Dormitorio	389.99	Cómoda vintage con tiradores dorados. 4 cajones amplios con rieles deslizantes suaves. Acabado en blanco mate. Tapa reforzada.	comoda-vintage.jpg	
+
+
+================================================================
+
+
+📝 EXPLICACIÓN DE CADA COLUMNA:
+================================
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 1. ID (Número)                                                  │
+│    • Número único de cada mueble (1, 2, 3, 4...)              │
+│    • NO REPITAS números                                         │
+│    • Se genera automáticamente si usas el panel admin          │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 2. Nombre (Texto)                                               │
+│    • Nombre descriptivo del mueble                             │
+│    • Ejemplo: "Sofá Moderno de 3 Plazas"                       │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 3. Categoria (Texto) ⚠️ IMPORTANTE                             │
+│    • Debe ser EXACTAMENTE una de estas opciones:               │
+│      - Sala                                                     │
+│      - Comedor                                                  │
+│      - Dormitorio                                               │
+│      - Oficina                                                  │
+│      - Almacenamiento                                           │
+│    • Respeta mayúsculas y acentos                              │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 4. Precio (Número)                                              │
+│    • Solo números y punto decimal                              │
+│    • NO uses símbolos como $, comas, etc.                      │
+│    • Ejemplo correcto: 899.99                                   │
+│    • Ejemplo incorrecto: $899,99                                │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 5. Descripcion (Texto)                                          │
+│    • Descripción completa del mueble                            │
+│    • Incluye materiales, medidas, características              │
+│    • Puedes escribir varias líneas                              │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 6. Imagenes (Texto) ⚠️ IMPORTANTE                              │
+│    • Nombres de archivos separados por COMAS                   │
+│    • Ejemplo: foto1.jpg, foto2.jpg, foto3.jpg                  │
+│    • Las fotos deben estar en la carpeta /imagenes             │
+│    • NO incluyas "imagenes/" en el nombre                       │
+│    • Mínimo 1 imagen OBLIGATORIA                                │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 7. Videos (Texto) - OPCIONAL                                    │
+│    • Nombres de archivos de video separados por COMAS          │
+│    • Ejemplo: video1.mp4, video2.mp4                            │
+│    • Los videos deben estar en la carpeta /videos              │
+│    • NO incluyas "videos/" en el nombre                         │
+│    • Deja vacío si no hay videos                                │
+└─────────────────────────────────────────────────────────────────┘
+
+
+✏️ CÓMO AGREGAR UN NUEVO MUEBLE:
+=================================
+
+1. Ve a la última fila con datos
+2. Crea una nueva fila abajo
+3. Llena cada columna siguiendo el formato de arriba
+4. Guarda (automático en Google Sheets)
+5. Recarga tu página web
+6. ¡Listo! El mueble aparecerá automáticamente
+
+
+✅ EJEMPLO DE FILA NUEVA:
+========================
+
+9	Librero Moderno	Almacenamiento	299.99	Librero de 5 repisas con diseño minimalista	librero.jpg, librero-2.jpg	
+
+
+❌ ERRORES COMUNES:
+==================
+
+ERROR: Precio con símbolo $
+❌ Precio: $899.99
+✅ Precio: 899.99
+
+ERROR: Categoría mal escrita
+❌ Categoria: sala (minúscula)
+❌ Categoria: SALA (mayúscula completa)
+✅ Categoria: Sala (primera letra mayúscula)
+
+ERROR: Imágenes con ruta completa
+❌ Imagenes: imagenes/sofa.jpg
+✅ Imagenes: sofa.jpg
+
+ERROR: Múltiples imágenes sin comas
+❌ Imagenes: foto1.jpg foto2.jpg foto3.jpg
+✅ Imagenes: foto1.jpg, foto2.jpg, foto3.jpg
+
+
+🎨 TIPS AVANZADOS:
+==================
+
+• Puedes usar URLs completas para imágenes:
+  Imagenes: https://ejemplo.com/foto.jpg
+
+• Puedes mezclar archivos locales y URLs:
+  Imagenes: sofa.jpg, https://ejemplo.com/sofa2.jpg
+
+• El orden de las imágenes importa: la primera será la principal
+
+• Deja celdas vacías si no tienes videos, ¡no pasa nada!
+
+• Puedes ocultar filas que no quieras mostrar (clic derecho > ocultar)
+
+
+═══════════════════════════════════════════════════════════════════
+Ahora ve al archivo: CONFIGURACION_GOOGLE_SHEETS.txt
+Para aprender a conectar este Sheet con tu web
+═══════════════════════════════════════════════════════════════════

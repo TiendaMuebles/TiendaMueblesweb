@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Catálogo de Muebles</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🔧 Panel de Administración</h1>
+            <p class="tagline">Gestiona tu catálogo de muebles fácilmente</p>
+            <a href="index.html" class="btn-volver">← Volver al Catálogo</a>
+        </div>
+    </header>
+
+    <main class="admin-content">
+        <div class="container">
+            <!-- Sección de Instrucciones -->
+            <section class="instrucciones">
+                <h2>📋 Cómo Agregar un Nuevo Mueble</h2>
+                <div class="pasos-grid">
+                    <div class="paso">
+                        <div class="paso-numero">1</div>
+                        <h3>Sube tus Archivos</h3>
+                        <p>Sube tus imágenes a la carpeta <code>/imagenes</code> en GitHub. 
+                           Si tienes videos, súbelos a <code>/videos</code>.</p>
+                        <small>Formatos: JPG/PNG para imágenes, MP4 para videos</small>
+                    </div>
+                    <div class="paso">
+                        <div class="paso-numero">2</div>
+                        <h3>Completa el Formulario</h3>
+                        <p>Llena todos los campos del formulario con la información 
+                           del mueble. Los videos son opcionales.</p>
+                        <small>La vista previa se actualizará automáticamente</small>
+                    </div>
+                    <div class="paso">
+                        <div class="paso-numero">3</div>
+                        <h3>Genera la Fila</h3>
+                        <p>Haz clic en "Generar Fila para Google Sheets" y copia el texto 
+                           que aparecerá en el cuadro.</p>
+                        <small>El texto estará listo para copiar</small>
+                    </div>
+                    <div class="paso">
+                        <div class="paso-numero">4</div>
+                        <h3>Pégalo en Google Sheets</h3>
+                        <p>Ve a tu Google Sheet, haz clic en la celda A de la nueva fila vacía, 
+                           y pega con <kbd>Ctrl+V</kbd>.</p>
+                        <small>Los datos se distribuirán automáticamente en las columnas correctas</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grid Principal: Formulario y Vista Previa -->
+            <div class="admin-grid">
+                <!-- Columna Izquierda: Formulario -->
+                <section class="formulario-section">
+                    <h2>✏️ Datos del Mueble</h2>
+                    <form id="muebleForm" class="mueble-form">
+                        <div class="form-group">
+                            <label for="id">ID del Mueble</label>
+                            <input 
+                                type="number" 
+                                id="id" 
+                                name="id" 
+                                placeholder="Cargando..." 
+                                required
+                                min="1"
+                                readonly
+                                style="background-color: #f0f0f0; cursor: not-allowed;"
+                            >
+                            <small>✅ Se asigna automáticamente según los IDs existentes</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre del Mueble</label>
+                            <input 
+                                type="text" 
+                                id="nombre" 
+                                name="nombre" 
+                                placeholder="Ej: Sofá Moderno Italiano" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoria">Categoría</label>
+                            <select 
+                                id="categoria" 
+                                name="categoria" 
+                                required
+                            >
+                                <option value="">-- Selecciona una categoría --</option>
+                                <option value="Sala">🛋️ Sala</option>
+                                <option value="Comedor">🍽️ Comedor</option>
+                                <option value="Dormitorio">🛏️ Dormitorio</option>
+                                <option value="Oficina">💼 Oficina</option>
+                                <option value="Almacenamiento">📚 Almacenamiento</option>
+                            </select>
+                            <small>Selecciona el tipo de mueble</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="precio">Precio ($)</label>
+                            <input 
+                                type="number" 
+                                id="precio" 
+                                name="precio" 
+                                placeholder="Ej: 1299.99" 
+                                step="0.01"
+                                required
+                                min="0"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <textarea 
+                                id="descripcion" 
+                                name="descripcion" 
+                                rows="4" 
+                                placeholder="Ej: Sofá de 3 plazas con diseño contemporáneo, tapizado en cuero genuino..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagenes">Nombres de Archivos de Imágenes (separados por comas)</label>
+                            <input 
+                                type="text" 
+                                id="imagenes" 
+                                name="imagenes" 
+                                placeholder="Ej: sofa-italiano.jpg, sofa-italiano-2.jpg, sofa-italiano-3.jpg" 
+                                required
+                            >
+                            <small>Solo los nombres de archivos, separados por comas (deben estar en /imagenes)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="videos">Nombres de Archivos de Videos (opcional, separados por comas)</label>
+                            <input 
+                                type="text" 
+                                id="videos" 
+                                name="videos" 
+                                placeholder="Ej: sofa-italiano.mp4, sofa-italiano-demo.mp4"
+                            >
+                            <small>Deja vacío si no tienes videos (deben estar en /videos)</small>
+                        </div>
+
+                        <button type="button" id="generarBtn" class="btn-generar">
+                            🚀 Generar Fila para Google Sheets
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Columna Derecha: Vista Previa -->
+                <section class="preview-section">
+                    <h2>👁️ Vista Previa</h2>
+                    <div class="preview-info">
+                        <p>Así se verá tu mueble en el catálogo:</p>
+                    </div>
+                    <div id="vistaPrevia" class="vista-previa">
+                        <article class="mueble-card">
+                            <div class="mueble-media">
+                                <div class="placeholder-media">
+                                    <span>📷</span>
+                                    <p>La imagen aparecerá aquí</p>
+                                </div>
+                                <span class="categoria-badge">📦 Categoría</span>
+                            </div>
+                            <div class="mueble-content">
+                                <h2 class="mueble-nombre">Nombre del Mueble</h2>
+                                <p class="mueble-descripcion">La descripción aparecerá aquí...</p>
+                                <div class="mueble-precio">$0.00</div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sección del Código Generado -->
+            <section class="codigo-section" id="codigoSection" style="display: none;">
+                <h2>📝 Fila para Google Sheets Generada</h2>
+                <div class="codigo-info">
+                    <p><strong>¡Fila generada exitosamente!</strong> Copia el siguiente texto y pégalo en tu Google Sheet</p>
+                </div>
+                <div class="codigo-container">
+                    <textarea 
+                        id="codigoGenerado" 
+                        class="codigo-textarea" 
+                        readonly
+                        rows="4"
+                    ></textarea>
+                    <button id="copiarBtn" class="btn-copiar">
+                        📋 Copiar al Portapapeles
+                    </button>
+                </div>
+                <div class="codigo-instrucciones">
+                    <h3>📌 Instrucciones para Pegar en Google Sheets</h3>
+                    <ol>
+                        <li>Abre tu <strong>Google Sheet</strong> (hoja "Muebles")</li>
+                        <li>Localiza la primera fila vacía (debajo de todos los muebles existentes)</li>
+                        <li>Haz clic en la <strong>celda A</strong> de esa fila (columna ID)</li>
+                        <li>Pega con <kbd>Ctrl+V</kbd> (Windows) o <kbd>Cmd+V</kbd> (Mac)</li>
+                        <li>Los datos se distribuirán automáticamente en las columnas correctas</li>
+                        <li>Espera unos segundos y <strong>recarga tu sitio web</strong> para ver el nuevo mueble</li>
+                    </ol>
+                    <div class="codigo-ejemplo">
+                        <strong>💡 Nota:</strong> Al pegar, los valores aparecerán en las columnas:
+                        <pre>ID | Nombre | Categoria | Precio | Descripcion | Imagenes | Videos</pre>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Mueblería Elegante - Panel de Administración</p>
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>
