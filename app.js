@@ -256,12 +256,29 @@ function crearGaleria(imagenes, videos) {
         const item = document.createElement('div');
         const isActive = imagenes.length === 0 && i === 0;
         item.className = `galeria-item ${isActive ? 'active' : ''}`;
-        item.innerHTML = `
-            <video controls>
-                <source src="${video}" type="video/mp4">
-                Tu navegador no soporta el elemento de video.
-            </video>
-        `;
+        
+        // Detectar si es video de Google Drive (formato /preview)
+        if (video.includes('drive.google.com') && video.includes('/preview')) {
+            // Usar iframe para videos de Drive
+            item.innerHTML = `
+                <iframe 
+                    src="${video}" 
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                    style="width: 100%; height: 100%; min-height: 400px;"
+                ></iframe>
+            `;
+        } else {
+            // Usar etiqueta video para archivos locales o Cloudinary
+            item.innerHTML = `
+                <video controls style="width: 100%; height: auto;">
+                    <source src="${video}" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            `;
+        }
+        
         galeriaMain.appendChild(item);
         
         // Crear indicador
@@ -285,12 +302,20 @@ function irASlide(index) {
     items.forEach(item => item.classList.remove('active'));
     indicadores.forEach(ind => ind.classList.remove('active'));
     
-    // Pausar todos los videos
+    // Pausar videos nativos y recargar iframes de Drive
     items.forEach(item => {
         const video = item.querySelector('video');
         if (video) {
             video.pause();
             video.currentTime = 0;
+        }
+        
+        // Pausar iframes de Drive recargándolos
+        const iframe = item.querySelector('iframe');
+        if (iframe && iframe.src.includes('drive.google.com')) {
+            const currentSrc = iframe.src;
+            iframe.src = '';
+            iframe.src = currentSrc;
         }
     });
     
@@ -336,10 +361,17 @@ function cerrarModal() {
     modal.classList.remove('active');
     document.body.classList.remove('modal-open');
     
-    // Pausar todos los videos
+    // Pausar todos los videos nativos
     document.querySelectorAll('.galeria-item video').forEach(video => {
         video.pause();
         video.currentTime = 0;
+    });
+    
+    // Pausar iframes de Drive recargándolos
+    document.querySelectorAll('.galeria-item iframe').forEach(iframe => {
+        if (iframe.src.includes('drive.google.com')) {
+            iframe.src = '';
+        }
     });
     
     currentMueble = null;
